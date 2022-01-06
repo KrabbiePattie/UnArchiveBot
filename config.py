@@ -90,9 +90,9 @@ class Config:
         "🇬🇧 Files uploaded!\n🇬🇧 Time : `{}`\n\n🍇 Uploaded : `{}`\n" + \
         "🍎 Size : `{}`\n🔥 [Source]({})\n✅ Successful : `{}`\n❌ Unsuccesful : `{}`")
     CLEAR_STR = os.environ.get('CLEAR_STR',
-        "🇬🇧 You\'re clean like a baby now. I deleted your files.")
+        "🇬🇧 You're clean like a baby now. I deleted your files.")
     JOIN_CHANNEL_STR = os.environ.get('JOIN_CHANNEL_STR',
-        "Merhaba / Hi {}\n\n" + \
+        "Hi {}\n\n" + \
         "🇬🇧 First subscribe my channel from button, then send /start again.")
     YOU_ARE_BANNED_STR = os.environ.get('YOU_ARE_BANNED_STR',
         "🇬🇧 You are Banned to use me.\n\n Contact Support : {}")
