@@ -46,31 +46,29 @@ class Config:
     OWNER_ID = int(os.environ.get('OWNER_ID', 0)) # give your owner id # if given 0 shell will not works
     AUTH_IDS = [int(x) for x in os.environ.get("AUTH_IDS", "0").split()] # if open to everyone give 0
     DOWNLOAD_DIR = os.environ.get('DOWNLOAD_DIR', 'downloads')
-    FINISHED_PROGRESS_STR = os.environ.get('FINISHED_PROGRESS_STR','●')
-    UN_FINISHED_PROGRESS_STR = os.environ.get('UN_FINISHED_PROGRESS_STR','○')
-    PROGRESS = "`🔥 Biten Yüzde / Percent: % {0}\n📀 Toplam Boyut / Total Size: {1}\n📤 Biten Boyut / Finished: {2}\n" + \
-        "📥 Kalan Boyut / Remaining: {3}\n⚡️ Anlık Hız / Speed: {4}/s\n⌛️ Geçen Süre / Passed: {5}\n⏳ Kalan Süre / Remaining: {6}`"
+    FINISHED_PROGRESS_STR = os.environ.get('FINISHED_PROGRESS_STR','▓')
+    UN_FINISHED_PROGRESS_STR = os.environ.get('UN_FINISHED_PROGRESS_STR','░')
+    PROGRESS = "`🔥 Percent : % {0}\n📀 Total Size : {1}\n📤 Finished : {2}\n" + \
+        "📥 Remaining : {3}\n⚡️ Speed : {4}/s\n⌛️ Passed : {5}\n⏳ Remaining : {6}`"
     FORCE_DOC_UPLOAD = int(os.environ.get('FORCE_DOC_UPLOAD', 0))
     ONE_PROCESS_PER_USER = int(os.environ.get('ONE_PROCESS_PER_USER', 1)) # for stability
-    UNAUTHORIZED_TEXT_STR = os.environ.get('UNAUTHORIZED_TEXT_STR', "🇹🇷 Bu bot senin için değil ezik.\n🇬🇧 This bot not for you.")
+    UNAUTHORIZED_TEXT_STR = os.environ.get('UNAUTHORIZED_TEXT_STR', "🇬🇧 This bot not for you.")
     PROGRESSBAR_LENGTH = int(os.environ.get('PROGRESSBAR_LENGTH', 25))
     ONE_PROCESS_PER_USER_STR = os.environ.get('ONE_PROCESS_PER_USER_STR',
         f"🇬🇧 1 user = 1 process.\nYou can clear your all files with /{CLEARME_COMMAND[0]}," + \
-        " Your process quee will be cleared. If anything is uploading at now, it will be cleared. Be careful." + \
-        f"\n\n🇹🇷 1 kullanıcı = 1 işlem.\nTüm dosyalarınızı /{CLEARME_COMMAND[0]} ile temizleyebilirsiniz." + \
-        " İşlem sıranız temizlenir. Şu an yüklenen bir şey varsa temizlenir. Dikkatli olun.")
-    CHANNEL_OR_CONTACT = os.environ.get('CHANNEL_OR_CONTACT', "HuzunluArtemis") # give your public channel or contact username
+        " Your process queue will be cleared. If anything is uploading at now, it will be cleared. Be careful.")
+    CHANNEL_OR_CONTACT = os.environ.get('CHANNEL_OR_CONTACT', "Iggie") # give your public channel or contact username
     SLEEP_TIME_BETWEEN_SEND_FILES = int(os.environ.get('SLEEP_TIME_BETWEEN_SEND_FILES', 2)) 
     SHOW_PROGRESS_MIN_SIZE_DOWNLOAD = int(os.environ.get('SHOW_PROGRESS_MIN_SIZE_DOWNLOAD', 12*1024*1024)) # for speedy
     DOWNLOADING_STR = os.environ.get('DOWNLOADING_STR',
-        "**🇹🇷 İndiriliyor / 🇬🇧 Downloading:**\n\n🎯 Name / Ad: `{}`\n❄️ Size / Boyut: `{}`\n🔑 Password / Parola: {}")
+        "**🇬🇧 Downloading :**\n\n🎯 Name : `{}`\n❄️ Size : `{}`\n🔑 Password : {}")
     UPLOADING_STR = os.environ.get('UPLOADING_STR',
-        "**🇹🇷 Yükleniyor / 🇬🇧 Uploading:**\n\n🎯 Kaynak / Source: `{}`\n" + \
-        "🍌 Kaynak Boyutu / Source Size: `{}`\n🔑 Password / Parola: {}\n\n🦋 Anlık Dosya / File Now: `{}`\n" + \
-        "❄️ Size Now / Anlık Boyut: `{}`\n🥕 File Turn / Dosya Sırası: `{}`")
+        "**🇬🇧 Uploading:**\n\nSource: `{}`\n" + \
+        "🍌 Source Size : `{}`\n🔑 Password : {}\n\n🦋 File Now : `{}`\n" + \
+        "❄️ Size Now : `{}`\n🥕 File Turn : `{}`")
     DOWNLOAD_SUCCESS = os.environ.get('DOWNLOAD_SUCCESS',
-        "🇹🇷 Dosya indirildi! / 🇬🇧 File downloaded.\n🇹🇷 Geçen Süre / 🇬🇧 Time: `{}`" + \
-        "\n\n🇹🇷 Arşivden çıkarılıyor lütfen bekleyin.\n🇬🇧 Extracting please wait.")
+        "🇬🇧 File downloaded.\n🇬🇧 Time : `{}`" + \
+        "\n\n🇬🇧 Extracting please wait.")
     EXTENSIONS = [str(x) for x in os.environ.get("EXTENSIONS",
         "7z apm arj bz2 bzip2 cab chm cpio cramfs deb dmg fat gz gzip hfs iso lzh lzma lzma2 mbr msi mslz nsis ntfs rar"+
         " rpm squashfs tar tar.bz2 tar.gz tar.xz tbz2 tgz udf vhd wim xar z zip").split()]
@@ -78,32 +76,27 @@ class Config:
     START_TEXT_STR = os.environ.get('START_TEXT_STR',"🇬🇧 Send archive and reply with `/" + UNZIP_COMMAND[0] + "`" + \
         " (if passworded: Leave a space after the command and enter the password.) " + \
         f"You can clear your all files with `/{CLEARME_COMMAND[0]}`," + \
-        " Your process quee will be cleared. If anything is uploading at now, it will be cleared. Be careful.\n\n" + \
-        "🇹🇷 Arşivi gönderin ve `/" + UNZIP_COMMAND[0] + "` ile yanıtlayın." + \
-        " (parolalıysa: komutunuzdan sonra bir boşluk bırakıp parolayı girin.) " + \
-        f"Tüm dosyalarınızı `/{CLEARME_COMMAND[0]}` ile temizleyebilirsiniz." + \
-        " İşlem sıranız temizlenir. Şu an yüklenen bir şey varsa temizlenir. Dikkatli olun.\n\n"
-        "🍓 Örnekler / Samples:\n\n✅ `/" + UNZIP_COMMAND[0] + "`" + \
+        " Your process queue will be cleared. If anything is uploading at now, it will be cleared. Be careful.\n\n"
+        "🍓 Samples :\n\n✅ `/" + UNZIP_COMMAND[0] + "`" + \
         "\n✅ `/" + UNZIP_COMMAND[0] + " Hunhj887ZunLudArt87emiS`" + \
         "\n✅ `/" + UNZIP_COMMAND[0] + " HEreis8yorupassword-parolaizZBuraya`" + \
         "\n✅ `/" + UNZIP_COMMAND[0] + " anoTherSampLe-bAskABirorNek`" + \
-        "\n\n🖼 Set thumbnail / Küçük resim ayarlama: `/" + SAVE_THUMB_COMMAND[0] + "`" + \
-        "\n❌ Clear thumbnail / Küçük resmi temizle: `/" + CLEAR_THUMB_COMMAND[0] + "`" + \
-        "\n🌆 Show thumbnail / Küçük resmi göster: `/" + SHOW_THUMB_COMMAND[0] + "`" + \
-        "\n🌿 Server stats / Sunucu istatistikleri: `/" + STATS_COMMAND[0] + "`" + \
-        f"\n\n🍒 Supported / Destekler: `{all_supported_extensions_with_comma}`")
+        "\n\n🖼 Set Thumbnail : `/" + SAVE_THUMB_COMMAND[0] + "`" + \
+        "\n❌ Clear Thumbnail : `/" + CLEAR_THUMB_COMMAND[0] + "`" + \
+        "\n🌆 Show Thumbnail : `/" + SHOW_THUMB_COMMAND[0] + "`" + \
+        "\n🌿 Server Stats : `/" + STATS_COMMAND[0] + "`" + \
+        f"\n\n🍒 Supported : `{all_supported_extensions_with_comma}`")
     UPLOAD_SUCCESS = os.environ.get('UPLOAD_SUCCESS',
-        "🇹🇷 Dosyalar yüklendi! / 🇬🇧 Files uploaded!\n🇹🇷 Geçen Süre / 🇬🇧 Time: `{}`\n\n🍇 Yüklenen / Uploaded: `{}`\n" + \
-        "🍎 Boyut / Size: `{}`\n🔥 [Kaynak / Source]({})\n✅ Başarılı / Success: `{}`\n❌ Başarısız / Unsucces: `{}`")
+        "🇬🇧 Files uploaded!\n🇬🇧 Time : `{}`\n\n🍇 Uploaded : `{}`\n" + \
+        "🍎 Size : `{}`\n🔥 [Source]({})\n✅ Successful : `{}`\n❌ Unsuccesful : `{}`")
     CLEAR_STR = os.environ.get('CLEAR_STR',
-        "🇬🇧 You\'re clean like a baby now. I deleted your files.\n🇹🇷 Şimdi bebek gibi tertemizsin. Dosyalarını sildim.")
+        "🇬🇧 You\'re clean like a baby now. I deleted your files.")
     JOIN_CHANNEL_STR = os.environ.get('JOIN_CHANNEL_STR',
         "Merhaba / Hi {}\n\n" + \
-        "🇬🇧 First subscribe my channel from button, then send /start again.\n" + \
-        "🇹🇷 Önce butondan kanala abone ol, sonra bana /start yaz.")
+        "🇬🇧 First subscribe my channel from button, then send /start again.")
     YOU_ARE_BANNED_STR = os.environ.get('YOU_ARE_BANNED_STR',
-        "🇬🇧 You are Banned to use me.\n🇹🇷 Banlanmışsın ezik.\n\nDestek / Support: {}")
-    JOIN_BUTTON_STR = os.environ.get('JOIN_BUTTON_STR', "🇬🇧 Join / 🇹🇷 Katıl")
+        "🇬🇧 You are Banned to use me.\n\n Contact Support : {}")
+    JOIN_BUTTON_STR = os.environ.get('JOIN_BUTTON_STR', "🇬🇧 Join")
     # non-required -
 
     botStartTime = time.time() # dont touch
